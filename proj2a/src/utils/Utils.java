@@ -4,12 +4,11 @@ package utils;
  *  level as "src".
  */
 public class Utils {
-    private static final String PREFIX = "./data/ngrams/";
-    public static final String TOP_14337_WORDS_FILE = PREFIX + "top_14377_words.csv";
-    public static final String TOP_49887_WORDS_FILE = PREFIX + "top_49887_words.csv";
-    public static final String Q_WORDS_FILE = PREFIX + "words_that_start_with_q.csv";
-    public static final String SHORT_WORDS_FILE = PREFIX + "very_short.csv";
-    public static final String TOTAL_COUNTS_FILE = PREFIX + "total_counts.csv";
-    public static final String SHORTER_WORDS_FILE = PREFIX + "less_short.csv";
+    private static final String PREFIX = "./data/";
+    public static final String WORD_HISTORY_SIZE3_FILE = PREFIX + "word_history_size3.csv";
+    public static final String WORD_HISTORY_SIZE4_FILE = PREFIX + "word_history_size4.csv";
+    public static final String WORD_HISTORY_SIZE1291_FILE = PREFIX + "word_history_size1291.csv";
+    public static final String WORD_HISTORY_SIZE14377_FILE = PREFIX + "word_history_size14377.csv";
+    public static final String YEAR_HISTORY_FILE = PREFIX + "year_history.csv";
 }
 
