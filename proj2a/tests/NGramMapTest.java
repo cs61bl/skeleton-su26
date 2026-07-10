@@ -4,11 +4,10 @@ import ngrams.TimeSeries;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static utils.Utils.*;
 import static com.google.common.truth.Truth.assertThat;
+import static utils.Utils.*;
 
 /** Unit Tests for the NGramMap class.
  *  @author Josh Hug
@@ -16,7 +15,7 @@ import static com.google.common.truth.Truth.assertThat;
 public class NGramMapTest {
     @Test
     public void testCountHistory() {
-        NGramMap ngm = new NGramMap(SHORT_WORDS_FILE, TOTAL_COUNTS_FILE);
+        NGramMap ngm = new NGramMap(WORD_HISTORY_SIZE3_FILE, YEAR_HISTORY_FILE);
         List<Integer> expectedYears = new ArrayList<>();
         expectedYears.add(2005);
         expectedYears.add(2006);
@@ -55,8 +54,7 @@ public class NGramMapTest {
     @Test
     public void testOnShortFile() {
         // creates an NGramMap from a large dataset
-        NGramMap ngm = new NGramMap(SHORTER_WORDS_FILE,
-                TOTAL_COUNTS_FILE);
+        NGramMap ngm = new NGramMap(WORD_HISTORY_SIZE4_FILE, YEAR_HISTORY_FILE);
 
         // returns the count of the number of occurrences of economically per year between 2000 and 2010.
         TimeSeries econCount = ngm.countHistory("economically", 2000, 2010);
@@ -70,11 +68,11 @@ public class NGramMapTest {
         TimeSeries academicWeight = ngm.weightHistory("academic", 1999, 2010);
         assertThat(academicWeight.get(1999)).isWithin(1E-7).of(969087.0 / 22668397698.0);
     }
+
     @Test
     public void testOnLargeFile() {
         // creates an NGramMap from a large dataset
-        NGramMap ngm = new NGramMap(TOP_14337_WORDS_FILE,
-                TOTAL_COUNTS_FILE);
+        NGramMap ngm = new NGramMap(WORD_HISTORY_SIZE14377_FILE, YEAR_HISTORY_FILE);
 
         // returns the count of the number of occurrences of fish per year between 1850 and 1933.
         TimeSeries fishCount = ngm.countHistory("fish", 1850, 1933);

@@ -6,7 +6,7 @@ import static utils.Utils.*;
 
 public class FileReadDemo {
     public static void main(String[] args) {
-        In in = new In(SHORT_WORDS_FILE);
+        In in = new In(WORD_HISTORY_SIZE3_FILE);
         int i = 0;
 
         while (!in.isEmpty()) {

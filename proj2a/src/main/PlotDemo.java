@@ -9,16 +9,19 @@ import static utils.Utils.*;
 import java.util.ArrayList;
 
 public class PlotDemo {
+    public static final int YEAR_1900 = 1900;
+    public static final int YEAR_1950 = 1950;
+
     public static void main(String[] args) {
 
-        NGramMap ngm = new NGramMap(TOP_14337_WORDS_FILE, TOTAL_COUNTS_FILE);
+        NGramMap ngm = new NGramMap(WORD_HISTORY_SIZE14377_FILE, YEAR_HISTORY_FILE);
         ArrayList<String> words = new ArrayList<>();
         words.add("cat");
         words.add("dog");
 
         ArrayList<TimeSeries> lts = new ArrayList<>();
         for (String word : words) {
-            lts.add(ngm.weightHistory(word, 1900, 1950));
+            lts.add(ngm.weightHistory(word, YEAR_1900, YEAR_1950));
         }
 
         XYChart chart = Plotter.generateTimeSeriesChart(words, lts);
